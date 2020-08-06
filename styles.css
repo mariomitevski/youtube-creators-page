@@ -1,0 +1,305 @@
+@font-face {
+    font-family: yoxall;
+    src: url(./fonts/YOXALL_B.TTF);
+}
+
+:root {
+    font-size: 16px;
+    --dark001: #1a1b1c;
+    --light001: #fafcfe;
+    --red001: #ff5757;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: var(--light001);
+    height: 100%;
+}
+
+.hamburger {
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    background-color: var(--dark001);
+    border: none;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+}
+
+.hamburger:focus, 
+.hamburger:active {
+    outline: 5px solid var(--red001);
+}
+
+.hamburger::after, 
+.hamburger::before {
+    content: '';
+    height: 20px;
+    border-left: 1px solid var(--light001);
+    transform: rotate(90deg);
+    margin: -3px;
+    transition: transform 0.3s ease;
+}
+
+.hamburger--active::after {
+    transform: rotate(135deg);
+}
+
+.hamburger--active::before {
+    transform: rotate(45deg);
+}
+
+.main-nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 40%;
+    background-color: var(--dark001);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 5;
+}
+
+.main-nav--active {
+    transform: translateX(0);
+}
+
+.main-nav a {
+    font-family: yoxall, sans-serif;
+    font-size: 3rem;
+    padding: 12px 0;
+    margin: 16px;
+    color: var(--light001);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.main-nav a:hover {
+    border-bottom: 1px solid var(--light001);
+}
+
+.main-nav a:focus, 
+.main-nav a:active {
+    outline: 5px solid var(--red001);
+}
+
+.home {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.home_info {
+    grid-column: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.home_header {
+    max-width: 356px;
+    margin: 82px 0 16px 0;
+}
+
+.home_title {
+    font-family: yoxall, sans-serif;
+    font-size: 4.125rem;
+    color: var(--dark001);
+    line-height: 105%;
+    margin-bottom: 56px;
+}
+
+.home_spacer {
+    display: inline-block;
+    height: 1px;
+    width: 102px;
+    background-color: var(--dark001);
+    margin-bottom: 48px;
+}
+
+.home_subtext {
+    font-family: Open Sans, sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: var(--dark001);
+    line-height: 165%;
+    margin-bottom: 48px;
+}
+
+.home_cta {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Open Sans, sans-serif;
+    font-weight: 700;
+    font-size: 0.625rem;
+    color: var(--light001);
+    background-color: var(--dark001);
+    border-radius: 50px;
+    border: 2px solid var(--dark001);
+    padding: 16px 48px;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+.home_cta:hover {
+    background-color: var(--light001);
+    color: var(--dark001);
+}
+
+.home_cta:focus, 
+.home_cta:active {
+    background-color: var(--light001);
+    color: var(--dark001);
+    outline: 5px solid var(--red001);
+}
+
+.home_cards {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 8px;
+}
+
+.group-one  {
+    grid-column: 1 / span 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.group-one .home_card--square {
+    background-image: linear-gradient(
+        180deg, 
+        rgba(26, 27, 28, 0)50%, 
+        rgba(26, 27, 28, 0.2)74.85%,
+        rgba(26, 27, 28, 0.4)100%
+        ),url(./images/marques-brownlee.jpg);
+}
+
+.group-one .home_card--large {
+    background-image: linear-gradient(
+        180deg, 
+        rgba(26, 27, 28, 0)50%, 
+        rgba(26, 27, 28, 0.2)74.85%,
+        rgba(26, 27, 28, 0.4)100%
+        ),url(./images/tech-me-out.jpg);
+}
+
+.group-two {
+    grid-column: 2 / span 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.group-two .home_card--square {
+    background-image: linear-gradient(
+        180deg, 
+        rgba(26, 27, 28, 0) 50%, 
+        rgba(26, 27, 28, 0.2) 74.85%,
+        rgba(26, 27, 28, 0.4) 100%
+        ),url(./images/peter-mckinnon.jpg);
+}
+
+.group-two .home_card--large {
+    background-image: linear-gradient(
+        180deg, 
+        rgba(26, 27, 28, 0)50%, 
+        rgba(26, 27, 28, 0.2)74.85%,
+        rgba(26, 27, 28, 0.4)100%
+        ),url(./images/ijustine.jpg);
+}
+
+.home_card {
+    margin: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--dark001);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home_card header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.home_card header h3 a {
+    font-family: yoxall, sans-serif;
+    font-size: 1rem;
+    color: var(--light001);
+    text-decoration: none;
+}
+
+.home_card--square {
+    height: 0;
+    padding-top: calc(100% - 32px);
+}
+
+.home_card--large {
+    flex: auto;
+}
+
+@media screen and (max-width: 1000px), screen and (max-height: 600px) {
+    .main-nav {
+        width: 100%;
+    }
+
+    .home_title { /* DODADENO + */
+        text-align: center;
+    }
+
+    .home_spacer { /* DODADENO + */
+        /*padding-left: 100%;*/
+        margin-left: 130px;
+        width: 100px;
+    }
+
+    .home_subtext { /* DODADENO + */
+        text-align: center;
+        font-size: 0.97rem;
+    }
+
+    .home_cta { /* DODADENO + */
+        margin-left: 22%;
+    }
+
+    .home_info,
+    .home_cards {
+        grid-column: 1 / span 2;
+    }
+
+    .home_card--large {
+        height: 0;
+        padding-top: calc(100% - 32px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .group-one, .group-two {
+        grid-column: 1 / span 2;
+    }
+}
